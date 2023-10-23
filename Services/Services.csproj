@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Aspose.PDF" Version="23.10.0" />
+    <PackageReference Include="EvoPdf.HtmlToPdf.NetCore" Version="10.0.0" />
     <PackageReference Include="Syncfusion.HtmlToPdfConverter.Net.Windows" Version="23.1.41" />
   </ItemGroup>
 
