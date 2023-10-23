@@ -20,14 +20,11 @@ namespace AppConsole
             while (true)
             {
                 Console.WriteLine("Select PDF Conversion Service then press enter and wait: ");
-                Console.WriteLine("1: SyncfusionService");
-                Console.WriteLine("2: NRecoService");
-                Console.WriteLine("3: DinkToPdf");
-                Console.WriteLine("4: Aspose");
-                Console.WriteLine("5: ExpertPdfConvertService");
-                Console.WriteLine("6: EvoPdfService");
-                Console.WriteLine("7: WinnovativeService");
-                Console.WriteLine("8: Exit");
+                Console.WriteLine("1: Syncfusion");
+                Console.WriteLine("2: EvoPdf");
+                Console.WriteLine("3: ExpertPdf");
+                Console.WriteLine("4: Winnovative");
+                Console.WriteLine("5: Exit");
 
                 int choice;
                 bool validChoice = int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= 5;
@@ -39,7 +36,7 @@ namespace AppConsole
                     continue;
                 }
 
-                if (choice == 6)
+                if (choice == 5)
                 {
                     Console.WriteLine("Exiting...");
                     break;
@@ -52,18 +49,14 @@ namespace AppConsole
                         serviceIdentifier = "Syncfusion";
                         break;
                     case 2:
-                        _pdfService = new NRecoService(new FileService());
-                        serviceIdentifier = "NReco";
+                        _pdfService = new EvoPdfService(new FileService());
+                        serviceIdentifier = "EvoPdf";
                         break;
                     case 3:
                         _pdfService = new ExpertPdfService(new FileService());
                         serviceIdentifier = "ExpertPdf";
                         break;
                     case 4:
-                        _pdfService = new EvoPdfService(new FileService());
-                        serviceIdentifier = "EvoPdf";
-                        break;
-                    case 5:
                         _pdfService = new WinnovativeService(new FileService());
                         serviceIdentifier = "Winnovative";
                         break;
@@ -91,7 +84,7 @@ namespace AppConsole
         }
         private static string GenerateOutputFileName(string identifier)
         {
-            return $"{BaseOutputPath}-{identifier}{FileExtension}";
+            return $"{identifier}-{BaseOutputPath}{FileExtension}";
         }
     }
 }
