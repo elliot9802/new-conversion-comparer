@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aspose.Pdf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,12 @@ namespace Services
 
         public void ConvertUrlToPdf(string urlContent, string outputPath)
         {
-            throw new NotImplementedException();
+            HtmlLoadOptions options = new HtmlLoadOptions(urlContent);
+            using (Document pdfDocument = new Document(urlContent, options)) 
+            {
+            
+                pdfDocument.Save(outputPath);
+            }
         }
     }
 }

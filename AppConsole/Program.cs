@@ -56,14 +56,22 @@ namespace AppConsole
                         serviceIdentifier = "NReco";
                         break;
                     case 3:
+                        _pdfService = new DinkToPdfService(new FileService());
+                        serviceIdentifier = "DinkToPdf";
+                        break;
+                    case 4:
+                        _pdfService = new AsposeService(new FileService());
+                        serviceIdentifier = "Aspose";
+                        break;
+                    case 5:
                         _pdfService = new ExpertPdfService(new FileService());
                         serviceIdentifier = "ExpertPdf";
                         break;
-                    case 4:
+                    case 6:
                         _pdfService = new EvoPdfService(new FileService());
                         serviceIdentifier = "EvoPdf";
                         break;
-                    case 5:
+                    case 7:
                         _pdfService = new WinnovativeService(new FileService());
                         serviceIdentifier = "Winnovative";
                         break;
